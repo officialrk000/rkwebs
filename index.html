@@ -3,145 +3,615 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RKWebs - Website Services</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>RKWebs | modern business presence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#0b63f6;--dark:#0a1b3d;--light:#f5f7fb}
-*{box-sizing:border-box;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:0}
-body{background:var(--light);color:#222}
-header{background:linear-gradient(120deg,var(--dark),var(--primary));color:#fff;padding:60px 20px;text-align:center;margin-right:230px}
-header h1{font-size:40px;margin-bottom:10px}
-header p{opacity:.9}
-.btn{background:#ffd000;color:#000;padding:12px 20px;border:none;border-radius:6px;font-weight:bold;cursor:pointer;margin-top:15px}
-section{padding:60px 20px;max-width:1100px;margin:auto}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:30px}
-.card{background:#fff;border-radius:12px;padding:25px;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:.3s}
-.card:hover{transform:translateY(-5px)}
-.price{background:var(--primary);color:#fff;text-align:center;border-radius:12px;padding:40px}
-.price h2{font-size:50px}
-form{display:grid;gap:12px;margin-top:20px}
-input,textarea{padding:12px;border:1px solid #ccc;border-radius:6px}
-footer{background:#0c1024;color:#ccc;text-align:center;padding:25px;margin-top:40px}
-.nav{position:fixed;top:0;right:0;height:100vh;width:230px;background:#fff;padding:20px;box-shadow:-3px 0 15px rgba(0,0,0,.08);display:flex;flex-direction:column;align-items:flex-start;z-index:10}
-.nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:bold}
-.spacer{width:230px;float:left}
-/* Hover Effects */
-.nav a:hover{color:var(--primary)}
-.btn:hover{background:#ffea5a;transform:scale(1.05)}
-.price:hover{box-shadow:0 20px 40px rgba(0,0,0,.2);transform:translateY(-4px);transition:.3s}
-.card:hover h3{color:var(--primary)}
-input:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(11,99,246,.2)}
-footer:hover{color:#fff}
-/* Responsive Improvements */
-@media (max-width:900px){
- header h1{font-size:32px}
- section{padding:50px 15px}
- .price h2{font-size:42px}
-}
-@media (max-width:600px){
- .nav{flex-direction:column;gap:8px}
- .nav div{display:flex;flex-wrap:wrap;justify-content:center}
- header{padding:50px 15px}
- header h1{font-size:26px}
- header p{font-size:14px}
- .btn{width:100%;max-width:260px}
- .cards{grid-template-columns:1fr}
- .price{padding:30px 15px}
- .price h2{font-size:36px}
- input,textarea{font-size:16px}
-}
-/* Hamburger Menu */
-.menu-btn{display:none;font-size:26px;cursor:pointer}
-@media(max-width:700px){
- .menu-btn{display:block}
- .nav div{display:none;flex-direction:column;background:#fff;position:absolute;top:60px;left:0;width:100%;padding:10px 0}
- .nav div.show{display:flex}
- .nav a{padding:10px 0}
-}
-/* Scroll Animation */
-.reveal{opacity:0;transform:translateY(30px);transition:.6s}
-.reveal.active{opacity:1;transform:none}
-/* Floating WhatsApp */
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:14px 16px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 10px 20px rgba(0,0,0,.2)}
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:30px}
-.gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px;cursor:pointer;transition:.3s}
-.gallery img:hover{transform:scale(1.05)}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:50}
-.lightbox img{max-width:90%;max-height:90%;border-radius:10px}
-/* Layout Fix */
-body{padding-right:230px}
-.spacer{display:none}
-header,section,footer{margin-right:0}
-.nav div{position:static}
-@media(max-width:700px){
- body{padding-right:0}
- .nav{position:relative;width:100%;height:auto;flex-direction:row;justify-content:space-between}
-}
+  /* ----- FRESH THEME: clean, light & airy with deep accents ----- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f8fafc;
+    color: #0f1825;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* navigation — now top bar, fully responsive, no fixed sidebar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5vw;
+    background: #ffffffdd;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    box-shadow: 0 4px 20px -8px rgba(0,34,77,0.08);
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(145deg, #0b2b5c, #1f4f9e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #1e2b41;
+    transition: color 0.2s;
+    font-size: 1.05rem;
+  }
+
+  .nav-links a:hover {
+    color: #146ef5;
+  }
+
+  .menu-btn {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #0f1825;
+    line-height: 1;
+  }
+
+  /* header — vibrant but soft */
+  header {
+    background: linear-gradient(115deg, #f0f6ff 0%, #eaf1fe 70%);
+    padding: 5rem 5vw;
+    text-align: center;
+    margin: 0;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+  }
+
+  header h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    background: linear-gradient(150deg, #0a2540, #1e4480);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.02em;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    color: #2f405b;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    font-weight: 400;
+  }
+
+  .btn {
+    background: #0f2b50;
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border: none;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 10px 20px -10px #0f2b5050;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .btn:hover {
+    background: #1c3f70;
+    transform: scale(1.03);
+    box-shadow: 0 18px 25px -12px #0f2b50cc;
+  }
+
+  /* sections */
+  section {
+    padding: 5rem 5vw;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #0b1c33;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  section h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 5px;
+    background: #146ef5;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+  }
+
+  /* cards grid — soft neumorphism */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 20px 35px -10px rgba(0,30,60,0.12);
+    transition: all 0.25s;
+    border: 1px solid #ffffff90;
+    backdrop-filter: blur(4px);
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 40px -12px #0b2b5c40;
+    border-color: #cbd5f0;
+  }
+
+  .card h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #11213b;
+  }
+
+  .card p {
+    color: #39506b;
+  }
+
+  /* pricing cards extra */
+  .plan {
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan h3 {
+    font-size: 1.8rem;
+  }
+
+  .plan h2 {
+    font-size: 2.5rem;
+    margin: 0.75rem 0 0.25rem;
+    color: #0e2d5a;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .plan h2::after {
+    display: none;
+  }
+
+  .plan ul {
+    list-style: none;
+    margin: 1.5rem 0 2rem;
+    flex-grow: 1;
+  }
+
+  .plan ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eef2f8;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .plan ul li::before {
+    content: "✓";
+    color: #146ef5;
+    font-weight: 700;
+    margin-right: 0.6rem;
+  }
+
+  .premium {
+    background: #ffffff;
+    border: 2px solid #146ef5;
+    transform: scale(1.02);
+    box-shadow: 0 30px 40px -20px #146ef560;
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #ffb347;
+    color: #0f1825;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.35rem 1rem;
+    border-radius: 40px;
+    box-shadow: 0 8px 12px -6px #f0a020;
+  }
+
+  /* gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2.5rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 14px 24px -10px rgba(0,0,0,0.15);
+    border: 1px solid #fff;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 24px 36px -12px #0f2b5060;
+  }
+
+  /* lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 28px;
+    box-shadow: 0 40px 60px #00000060;
+  }
+
+  /* contact form */
+  form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 36px;
+    box-shadow: 0 28px 45px -20px #0b1c3350;
+    max-width: 600px;
+    margin: 2rem 0;
+    border: 1px solid #fff;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: 0.2s;
+    background: #fbfdff;
+  }
+
+  textarea {
+    border-radius: 28px;
+    resize: vertical;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #146ef5;
+    box-shadow: 0 0 0 4px #146ef520;
+  }
+
+  form .btn {
+    width: 100%;
+    background: #146ef5;
+    box-shadow: 0 12px 24px -10px #146ef5;
+    border-radius: 40px;
+    padding: 1rem;
+  }
+
+  form .btn:hover {
+    background: #0f5bd0;
+  }
+
+  #msg {
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #0f5bd0;
+  }
+
+  /* footer */
+  footer {
+    background: #0f1825;
+    color: #b0c2da;
+    text-align: center;
+    padding: 2rem;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* whatsapp floating */
+  .whatsapp {
+    position: fixed;
+    right: 24px;
+    bottom: 30px;
+    background: #1fbf64;
+    color: white;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 18px 30px -8px #1fbf6480;
+    transition: 0.2s;
+    z-index: 30;
+  }
+
+  .whatsapp:hover {
+    transform: scale(1.1);
+    background: #25d16b;
+  }
+
+  /* reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.7s cubic-bezier(0.2, 0.9, 0.1, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* responsive */
+  @media (max-width: 800px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 70px;
+      right: 5vw;
+      width: 200px;
+      padding: 1.8rem 1rem;
+      border-radius: 30px;
+      box-shadow: 0 30px 40px -10px #0b1c3340;
+      border: 1px solid #eee;
+      gap: 1.5rem;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .menu-btn {
+      display: block;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+    }
+
+    section h2 {
+      font-size: 2.1rem;
+    }
+
+    .cards {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    header h1 {
+      font-size: 2rem;
+    }
+    .btn {
+      width: 100%;
+    }
+    form {
+      padding: 1.8rem;
+    }
+  }
+
+  /* remove old fixed nav spacing */
+  .spacer, .nav {
+    display: none;
+  }
+  body {
+    padding-right: 0;
+  }
+
+  /* small polish */
+  .price h2, #price h2 {
+    font-size: 2.5rem;
+  }
+  .price h2::after {
+    margin-left: 0;
+  }
 </style>
 </head>
 <body>
-<div class="nav"><strong>RKWebs</strong><span class="menu-btn" onclick="toggleMenu()">☰</span><div id="menu"><a href="#services">Services</a><a href="#price">Price</a><a href="#contact">Contact</a></div></div>
-<div class="spacer"></div>
+
+<!-- fresh top navigation -->
+<div class="navbar">
+  <div class="logo">RKWebs</div>
+  <div class="nav-links" id="menu">
+    <a href="#services">Services</a>
+    <a href="#price">Pricing</a>
+    <a href="#projects">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <span class="menu-btn" onclick="toggleMenu()">☰</span>
+</div>
+
+<!-- header with new clean vibe -->
 <header>
-<h1>Bring Your Business Online</h1>
-<p>Professional website development for small businesses</p>
-<button class="btn" onclick="scrollToSection('contact')">Get Website</button>
+  <h1>bring your business online</h1>
+  <p>professional websites for shops, schools & stores — no templates, just custom built.</p>
+  <button class="btn" onclick="scrollToSection('contact')">start your project</button>
 </header>
+
 <section id="services">
-<h2>Our Services</h2>
-<div class="cards">
-<div class="card"><h3>Business Website</h3><p>Modern responsive website for any shop or service.</p></div>
-<div class="card"><h3>School Portal</h3><p>Admit card, result, notice & student panel.</p></div>
-<div class="card"><h3>E-Commerce</h3><p>Sell products online with order system.</p></div>
-<div class="card"><h3>Support</h3><p>Technical help and updates available.</p></div>
-</div>
+  <h2>what we build</h2>
+  <div class="cards">
+    <div class="card"><h3>business</h3><p>responsive, fast website for local shops or professionals.</p></div>
+    <div class="card"><h3>school portal</h3><p>results, notices, admit cards & private student access.</p></div>
+    <div class="card"><h3>e‑commerce</h3><p>complete online store with orders & payments.</p></div>
+    <div class="card"><h3>support</h3><p>updates, fixes & peace of mind included.</p></div>
+  </div>
 </section>
-<section id="price" class="price">
-<h3>Website Starting From</h3>
-<h2>₹5999/-</h2>
-<p>Mobile Friendly • Fast • Secure</p>
+
+<section id="price">
+  <h2>simple plans</h2>
+  <div class="cards">
+    <div class="card plan">
+      <h3>starter</h3>
+      <h2>₹4,999</h2>
+      <ul>
+        <li>5 pages website</li>
+        <li>mobile friendly</li>
+        <li>contact & WhatsApp</li>
+        <li>15 days support</li>
+      </ul>
+      <button class="btn" onclick="scrollToSection('contact')">choose starter</button>
+    </div>
+    <div class="card plan premium">
+      <span class="badge">most popular</span>
+      <h3>business</h3>
+      <h2>₹9,999</h2>
+      <ul>
+        <li>10+ pages</li>
+        <li>admin panel</li>
+        <li>gallery upload / result system</li>
+        <li>payment integration</li>
+        <li>1 month support</li>
+      </ul>
+      <button class="btn" onclick="scrollToSection('contact')">choose business</button>
+    </div>
+    <div class="card plan">
+      <h3>enterprise</h3>
+      <h2>₹19,999</h2>
+      <ul>
+        <li>e‑commerce store</li>
+        <li>product & order mgmt</li>
+        <li>SEO optimized</li>
+        <li>priority support</li>
+        <li>custom features</li>
+      </ul>
+      <button class="btn" onclick="scrollToSection('contact')">choose enterprise</button>
+    </div>
+  </div>
 </section>
+
 <section id="projects">
-<h2>Live Project Gallery</h2>
-<div class="gallery">
-<img src="https://picsum.photos/600/400?1" onclick="openImg(this.src)">
-<img src="https://picsum.photos/600/400?2" onclick="openImg(this.src)">
-<img src="https://picsum.photos/600/400?3" onclick="openImg(this.src)">
-<img src="https://picsum.photos/600/400?4" onclick="openImg(this.src)">
-</div>
+  <h2>live projects</h2>
+  <div class="gallery">
+    <img src="https://picsum.photos/600/400?1" alt="preview" onclick="openImg(this.src)">
+    <img src="https://picsum.photos/600/400?2" alt="preview" onclick="openImg(this.src)">
+    <img src="https://picsum.photos/600/400?3" alt="preview" onclick="openImg(this.src)">
+    <img src="https://picsum.photos/600/400?4" alt="preview" onclick="openImg(this.src)">
+  </div>
 </section>
+
 <section id="contact">
-<h2>Contact Us</h2>
-<form id="contactForm">
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<textarea placeholder="Tell us about your website"></textarea>
-<button class="btn" type="submit">Submit</button>
-<p id="msg"></p>
-</form>
+  <h2>let's talk</h2>
+  <form id="contactForm">
+    <input type="text" placeholder="your name" required>
+    <input type="tel" placeholder="mobile number" required>
+    <textarea placeholder="tell us about your website idea..." rows="3"></textarea>
+    <button class="btn" type="submit">send request</button>
+    <p id="msg"></p>
+  </form>
 </section>
-<footer>© 2026 RKWebs - All Rights Reserved</footer>
-<script>
-function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 
-document.getElementById('contactForm').addEventListener('submit',function(e){
- e.preventDefault();
- document.getElementById('msg').innerText='Thank you! We will contact you soon.';
- this.reset();
-});
-</script>
-<a class="whatsapp" href="https://wa.me/909035454361" target="_blank">💬</a>
-<script>
-function toggleMenu(){document.getElementById('menu').classList.toggle('show')}
+<footer>© 2026 RKWebs — websites that work</footer>
 
-// Scroll reveal
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})});
-document.querySelectorAll('section,header,.card,.price').forEach(el=>{el.classList.add('reveal');observer.observe(el)});
-</script>
-<div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img id="lightimg"></div>
+<!-- floating whatsapp -->
+<a class="whatsapp" href="https://wa.me/909035454361" target="_blank" title="chat on whatsapp">💬</a>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+  <img id="lightimg" alt="enlarged preview">
+</div>
+
 <script>
-function openImg(src){document.getElementById('lightbox').style.display='flex';document.getElementById('lightimg').src=src}
+  // smooth scroll
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('show');
+  }
+
+  // close mobile menu if click outside (optional, but fine)
+  document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menu');
+    const btn = document.querySelector('.menu-btn');
+    if (!menu.contains(event.target) && !btn.contains(event.target) && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  });
+
+  // form handler
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('msg').innerText = '✅ thanks! we’ll reply within hours.';
+    this.reset();
+  });
+
+  // lightbox
+  function openImg(src) {
+    document.getElementById('lightbox').style.display = 'flex';
+    document.getElementById('lightimg').src = src;
+  }
+
+  // Intersection observer (reveal)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('header, section, .card, .gallery img, .price, form').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // ensure any manually added class remains
 </script>
+
 </body>
 </html>
