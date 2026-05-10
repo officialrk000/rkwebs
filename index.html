@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RKWebs | modern business presence</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>RKWebs | Next-Gen Digital Presence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 <style>
-  /* ----- FRESH THEME: clean, light & airy with deep accents ----- */
+  /* RESET & GLOBAL — PERFORMANCE FIRST */
   * {
     margin: 0;
     padding: 0;
@@ -14,604 +14,749 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: #f8fafc;
-    color: #0f1825;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: #fbfdff;
+    color: #121826;
     line-height: 1.5;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
-  /* navigation — now top bar, fully responsive, no fixed sidebar */
+  /* GLASS NAVIGATION (FAST, NO LAYOUT SHIFT) */
   .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 5vw;
-    background: #ffffffdd;
+    padding: 1rem 6vw;
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     position: sticky;
     top: 0;
-    z-index: 40;
-    box-shadow: 0 4px 20px -8px rgba(0,34,77,0.08);
+    z-index: 100;
+    transition: box-shadow 0.2s, background 0.2s;
   }
-
+  .navbar.scrolled {
+    box-shadow: 0 8px 24px -12px rgba(0, 32, 64, 0.12);
+    background: rgba(255, 255, 255, 0.98);
+  }
   .logo {
-    font-weight: 700;
-    font-size: 1.7rem;
+    font-weight: 800;
+    font-size: 1.9rem;
     letter-spacing: -0.02em;
-    background: linear-gradient(145deg, #0b2b5c, #1f4f9e);
+    background: linear-gradient(135deg, #0E2C5E, #1A4A8F);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    transition: transform 0.2s ease;
+    cursor: default;
   }
-
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2.8rem;
     align-items: center;
   }
-
   .nav-links a {
     text-decoration: none;
-    font-weight: 500;
-    color: #1e2b41;
-    transition: color 0.2s;
-    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1E2F41;
+    transition: all 0.2s;
+    font-size: 1rem;
+    position: relative;
   }
-
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    background: #146ef5;
+    border-radius: 4px;
+    transition: width 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  }
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
   .nav-links a:hover {
     color: #146ef5;
   }
-
   .menu-btn {
     display: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #0f1825;
+    background: none;
+    border: none;
     line-height: 1;
+    transition: opacity 0.2s;
   }
 
-  /* header — vibrant but soft */
-  header {
-    background: linear-gradient(115deg, #f0f6ff 0%, #eaf1fe 70%);
-    padding: 5rem 5vw;
+  /* HERO SECTION (PERFORMANT CSS ANIMATIONS + LOADING FREE) */
+  .hero {
+    background: radial-gradient(circle at 10% 30%, #f0f7ff, #e9f2fc);
+    padding: 6rem 6vw 7rem;
     text-align: center;
-    margin: 0;
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    position: relative;
+    overflow: hidden;
   }
-
-  header h1 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    background: linear-gradient(150deg, #0a2540, #1e4480);
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(145deg, #05223f, #1f5192);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+    animation: fadeSlideUp 0.6s ease-out;
   }
-
-  header p {
-    font-size: 1.2rem;
-    color: #2f405b;
-    max-width: 600px;
-    margin: 0 auto 1.5rem;
-    font-weight: 400;
+  .hero p {
+    font-size: 1.3rem;
+    color: #2c405c;
+    max-width: 680px;
+    margin: 0 auto 2rem;
+    font-weight: 450;
+    animation: fadeSlideUp 0.6s 0.1s both;
   }
-
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeSlideUp 0.6s 0.2s both;
+  }
   .btn {
-    background: #0f2b50;
+    background: #0F2B50;
     color: white;
-    padding: 0.9rem 2.2rem;
+    padding: 0.9rem 2rem;
     border: none;
     border-radius: 60px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.25s;
-    box-shadow: 0 10px 20px -10px #0f2b5050;
-    display: inline-block;
-    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 12px 20px -14px rgba(15, 43, 80, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
-
+  .btn-outline {
+    background: transparent;
+    color: #0F2B50;
+    border: 1.5px solid #0F2B50;
+    box-shadow: none;
+  }
+  .btn-outline:hover {
+    background: #0F2B50;
+    color: white;
+    transform: translateY(-3px);
+  }
   .btn:hover {
-    background: #1c3f70;
-    transform: scale(1.03);
-    box-shadow: 0 18px 25px -12px #0f2b50cc;
+    transform: translateY(-4px) scale(1.02);
+    background: #1c4070;
+    box-shadow: 0 20px 28px -16px #0f2b50;
   }
 
-  /* sections */
+  /* SECTION STYLES (MODERN, CLEAN) */
   section {
-    padding: 5rem 5vw;
-    max-width: 1300px;
+    padding: 5.5rem 6vw;
+    max-width: 1400px;
     margin: 0 auto;
   }
-
-  section h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
+  .section-title {
+    font-size: 2.7rem;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    color: #0b1c33;
+    color: #0E2A4A;
     margin-bottom: 2rem;
     position: relative;
+    display: inline-block;
   }
-
-  section h2::after {
+  .section-title span {
+    background: linear-gradient(120deg, #146ef5, #2b7aff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .section-title::after {
     content: '';
     display: block;
     width: 70px;
-    height: 5px;
-    background: #146ef5;
-    border-radius: 6px;
-    margin-top: 0.5rem;
+    height: 4px;
+    background: linear-gradient(90deg, #146ef5, #91b9ff);
+    border-radius: 4px;
+    margin-top: 12px;
   }
 
-  /* cards grid — soft neumorphism */
-  .cards {
+  /* GRID CARDS WITH MICRO-INTERACTIONS */
+  .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
   }
-
   .card {
     background: #ffffff;
-    border-radius: 28px;
+    border-radius: 2rem;
     padding: 2rem 1.8rem;
-    box-shadow: 0 20px 35px -10px rgba(0,30,60,0.12);
-    transition: all 0.25s;
-    border: 1px solid #ffffff90;
-    backdrop-filter: blur(4px);
+    box-shadow: 0 18px 35px -12px rgba(0, 20, 45, 0.08);
+    transition: all 0.35s cubic-bezier(0.2, 0.85, 0.4, 1);
+    border: 1px solid rgba(0,0,0,0.02);
+    backdrop-filter: blur(2px);
+    will-change: transform;
   }
-
   .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 28px 40px -12px #0b2b5c40;
-    border-color: #cbd5f0;
+    transform: translateY(-8px);
+    box-shadow: 0 28px 48px -18px rgba(16, 70, 140, 0.2);
+    border-color: #eef2ff;
   }
-
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
   .card h3 {
     font-size: 1.7rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #11213b;
-  }
-
-  .card p {
-    color: #39506b;
-  }
-
-  /* pricing cards extra */
-  .plan {
-    text-align: left;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .plan h3 {
-    font-size: 1.8rem;
-  }
-
-  .plan h2 {
-    font-size: 2.5rem;
-    margin: 0.75rem 0 0.25rem;
-    color: #0e2d5a;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
   }
-
-  .plan h2::after {
-    display: none;
+  .card p {
+    color: #4a5c7c;
+    line-height: 1.5;
   }
-
+  .price-badge {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: #eef4ff;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 40px;
+    margin-bottom: 1rem;
+    color: #146ef5;
+  }
+  .premium-card {
+    border: 2px solid #146ef5;
+    background: linear-gradient(145deg, #ffffff, #fafcff);
+    transform: scale(1.02);
+    box-shadow: 0 28px 48px -20px #146ef570;
+  }
+  .badge-hot {
+    position: absolute;
+    top: -12px;
+    right: 18px;
+    background: #ff8c42;
+    color: #1c1e2a;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.3rem 1rem;
+    border-radius: 60px;
+    letter-spacing: -0.2px;
+  }
   .plan ul {
     list-style: none;
     margin: 1.5rem 0 2rem;
-    flex-grow: 1;
   }
-
   .plan ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eef2f8;
-    font-weight: 400;
+    padding: 0.6rem 0;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.6rem;
+    border-bottom: 1px solid #ecf1f7;
   }
-
   .plan ul li::before {
-    content: "✓";
+    content: "⚡";
     color: #146ef5;
-    font-weight: 700;
-    margin-right: 0.6rem;
-  }
-
-  .premium {
-    background: #ffffff;
-    border: 2px solid #146ef5;
-    transform: scale(1.02);
-    box-shadow: 0 30px 40px -20px #146ef560;
-  }
-
-  .badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #ffb347;
-    color: #0f1825;
     font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.35rem 1rem;
-    border-radius: 40px;
-    box-shadow: 0 8px 12px -6px #f0a020;
   }
 
-  /* gallery */
-  .gallery {
+  /* GALLERY MASONRY STYLE (PERFORMANT) */
+  .gallery-modern {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.8rem;
-    margin-top: 2.5rem;
   }
-
-  .gallery img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 24px;
+  .gallery-item {
+    border-radius: 1.8rem;
+    overflow: hidden;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 14px 24px -10px rgba(0,0,0,0.15);
-    border: 1px solid #fff;
+    transition: 0.25s ease;
+    box-shadow: 0 16px 28px -12px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 4/3;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    will-change: transform;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
   }
 
-  .gallery img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 24px 36px -12px #0f2b5060;
+  /* FORM (GLASS + PERFORMANT) */
+  .contact-wrapper {
+    background: linear-gradient(125deg, #ffffff, #f9fcff);
+    border-radius: 2.8rem;
+    padding: 2rem;
+    box-shadow: 0 25px 45px -22px rgba(0, 0, 0, 0.1);
+  }
+  .glass-form {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .glass-form input, .glass-form textarea {
+    width: 100%;
+    padding: 1rem 1.4rem;
+    border: 1px solid #e2e9f2;
+    border-radius: 60px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background: white;
+    transition: all 0.2s;
+    margin-bottom: 1rem;
+  }
+  .glass-form textarea {
+    border-radius: 2rem;
+    resize: vertical;
+  }
+  .glass-form input:focus, .glass-form textarea:focus {
+    border-color: #146ef5;
+    box-shadow: 0 0 0 4px rgba(20, 110, 245, 0.15);
+    outline: none;
+  }
+  #msgFeedback {
+    font-weight: 500;
+    margin-top: 1rem;
+    text-align: center;
   }
 
-  /* lightbox */
+  /* FLOATING WHATSAPP BUTTON */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: #1FBF64;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 15px 28px -10px #1FBF64CC;
+    transition: all 0.25s ease;
+    z-index: 99;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(2deg);
+    background: #25d16e;
+    box-shadow: 0 22px 32px -12px #1FBF64;
+  }
+
+  /* LIGHTBOX */
   .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    z-index: 1000;
+    cursor: pointer;
   }
-
   .lightbox img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 28px;
-    box-shadow: 0 40px 60px #00000060;
-  }
-
-  /* contact form */
-  form {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 36px;
-    box-shadow: 0 28px 45px -20px #0b1c3350;
-    max-width: 600px;
-    margin: 2rem 0;
-    border: 1px solid #fff;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 1rem 1.2rem;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 40px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    max-width: 88vw;
+    max-height: 88vh;
+    border-radius: 2rem;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
     transition: 0.2s;
-    background: #fbfdff;
   }
 
-  textarea {
-    border-radius: 28px;
-    resize: vertical;
+  /* animations */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: #146ef5;
-    box-shadow: 0 0 0 4px #146ef520;
-  }
-
-  form .btn {
-    width: 100%;
-    background: #146ef5;
-    box-shadow: 0 12px 24px -10px #146ef5;
-    border-radius: 40px;
-    padding: 1rem;
-  }
-
-  form .btn:hover {
-    background: #0f5bd0;
-  }
-
-  #msg {
-    margin-top: 1rem;
-    font-weight: 500;
-    color: #0f5bd0;
-  }
-
-  /* footer */
-  footer {
-    background: #0f1825;
-    color: #b0c2da;
-    text-align: center;
-    padding: 2rem;
-    border-top-left-radius: 2.5rem;
-    border-top-right-radius: 2.5rem;
-    font-size: 1rem;
-  }
-
-  /* whatsapp floating */
-  .whatsapp {
-    position: fixed;
-    right: 24px;
-    bottom: 30px;
-    background: #1fbf64;
-    color: white;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 2rem;
-    text-decoration: none;
-    box-shadow: 0 18px 30px -8px #1fbf6480;
-    transition: 0.2s;
-    z-index: 30;
-  }
-
-  .whatsapp:hover {
-    transform: scale(1.1);
-    background: #25d16b;
-  }
-
-  /* reveal animation */
   .reveal {
     opacity: 0;
-    transform: translateY(25px);
-    transition: 0.7s cubic-bezier(0.2, 0.9, 0.1, 1);
+    transform: translateY(28px);
+    transition: opacity 0.65s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1);
+    will-change: opacity, transform;
   }
-
   .reveal.active {
     opacity: 1;
     transform: translateY(0);
   }
 
   /* responsive */
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     .nav-links {
       display: none;
       flex-direction: column;
-      background: white;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
       position: absolute;
       top: 70px;
       right: 5vw;
-      width: 200px;
-      padding: 1.8rem 1rem;
-      border-radius: 30px;
-      box-shadow: 0 30px 40px -10px #0b1c3340;
-      border: 1px solid #eee;
-      gap: 1.5rem;
+      width: 220px;
+      padding: 2rem 1.5rem;
+      border-radius: 2rem;
+      gap: 1.8rem;
+      box-shadow: 0 25px 35px -15px rgba(0,0,0,0.2);
+      border: 1px solid #ffffff70;
     }
-
     .nav-links.show {
       display: flex;
     }
-
     .menu-btn {
       display: block;
     }
-
-    header h1 {
-      font-size: 2.6rem;
+    .hero h1 {
+      font-size: 2.8rem;
     }
-
-    section h2 {
-      font-size: 2.1rem;
+    .hero p {
+      font-size: 1.1rem;
     }
-
-    .cards {
-      gap: 1.5rem;
-    }
-  }
-
-  @media (max-width: 500px) {
-    header h1 {
+    .section-title {
       font-size: 2rem;
     }
+  }
+  @media (max-width: 540px) {
+    .hero {
+      padding: 3.5rem 1.2rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    .btn-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
     .btn {
-      width: 100%;
+      justify-content: center;
     }
-    form {
-      padding: 1.8rem;
+    section {
+      padding: 3rem 1.3rem;
     }
   }
 
-  /* remove old fixed nav spacing */
-  .spacer, .nav {
-    display: none;
+  footer {
+    background: #0B1522;
+    color: #b7c8e5;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    font-size: 0.9rem;
   }
-  body {
-    padding-right: 0;
-  }
-
-  /* small polish */
-  .price h2, #price h2 {
-    font-size: 2.5rem;
-  }
-  .price h2::after {
-    margin-left: 0;
+  .counter-stat {
+    font-weight: 800;
+    background: #EFF4FF;
+    border-radius: 80px;
+    display: inline-block;
+    padding: 0.3rem 1rem;
   }
 </style>
 </head>
 <body>
 
-<!-- fresh top navigation -->
-<div class="navbar">
-  <div class="logo">RKWebs</div>
-  <div class="nav-links" id="menu">
-    <a href="#services">Services</a>
-    <a href="#price">Pricing</a>
-    <a href="#projects">Work</a>
-    <a href="#contact">Contact</a>
+<div class="navbar" id="navbar">
+  <div class="logo">RK<span style="color:#146ef5;">Webs</span></div>
+  <div class="nav-links" id="navMenu">
+    <a href="#services" data-nav="services">Services</a>
+    <a href="#pricing" data-nav="pricing">Pricing</a>
+    <a href="#projects" data-nav="projects">Portfolio</a>
+    <a href="#contact" data-nav="contact">Connect</a>
   </div>
-  <span class="menu-btn" onclick="toggleMenu()">☰</span>
+  <button class="menu-btn" id="menuToggle" aria-label="menu">☰</button>
 </div>
 
-<!-- header with new clean vibe -->
-<header>
-  <h1>bring your business online</h1>
-  <p>professional websites for shops, schools & stores — no templates, just custom built.</p>
-  <button class="btn" onclick="scrollToSection('contact')">start your project</button>
+<header class="hero">
+  <h1>Scale your business <br> with intelligent web</h1>
+  <p>Modern, lightning-fast websites for schools, stores & establishments — custom-crafted, not templated.</p>
+  <div class="btn-group">
+    <button class="btn" onclick="scrollToSection('contact')">🚀 Launch project</button>
+    <button class="btn btn-outline" onclick="scrollToSection('pricing')">✨ View plans</button>
+  </div>
+  <div style="margin-top: 32px;"><span class="counter-stat">⭐ 150+ projects delivered</span></div>
 </header>
 
 <section id="services">
-  <h2>what we build</h2>
-  <div class="cards">
-    <div class="card"><h3>business</h3><p>responsive, fast website for local shops or professionals.</p></div>
-    <div class="card"><h3>school portal</h3><p>results, notices, admit cards & private student access.</p></div>
-    <div class="card"><h3>e‑commerce</h3><p>complete online store with orders & payments.</p></div>
-    <div class="card"><h3>support</h3><p>updates, fixes & peace of mind included.</p></div>
+  <h2 class="section-title"><span>core</span> solutions</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-icon">🏢</div><h3>Business DNA</h3><p>High-performance corporate sites, lead gen & analytics ready.</p></div>
+    <div class="card"><div class="card-icon">🎓</div><h3>Edu portals</h3><p>Student results, notices, private dashboards & exam modules.</p></div>
+    <div class="card"><div class="card-icon">🛒</div><h3>Smart e‑commerce</h3><p>Inventory, carts, UPI/payment links, order tracking.</p></div>
+    <div class="card"><div class="card-icon">⚡</div><h3>Speed boost</h3><p>Lighthouse 95+ scores, SEO optimized, 24/7 reliability.</p></div>
   </div>
 </section>
 
-<section id="price">
-  <h2>simple plans</h2>
-  <div class="cards">
+<section id="pricing">
+  <h2 class="section-title"><span>transparent</span> pricing</h2>
+  <div class="cards-grid">
     <div class="card plan">
-      <h3>starter</h3>
-      <h2>₹4,999</h2>
+      <div class="price-badge">Starter</div>
+      <h3 style="font-size:2rem; margin-bottom:0.2rem;">₹4,999</h3>
       <ul>
-        <li>5 pages website</li>
-        <li>mobile friendly</li>
-        <li>contact & WhatsApp</li>
-        <li>15 days support</li>
+        <li>5 custom pages</li>
+        <li>Fully responsive design</li>
+        <li>WhatsApp & contact form</li>
+        <li>15 days free support</li>
+        <li>Fast hosting ready</li>
       </ul>
-      <button class="btn" onclick="scrollToSection('contact')">choose starter</button>
+      <button class="btn" onclick="scrollToSection('contact')">Start now →</button>
     </div>
-    <div class="card plan premium">
-      <span class="badge">most popular</span>
-      <h3>business</h3>
-      <h2>₹9,999</h2>
+    <div class="card plan premium-card" style="position:relative;">
+      <span class="badge-hot">🔥 most loved</span>
+      <div class="price-badge">Business Plus</div>
+      <h3 style="font-size:2rem;">₹9,999</h3>
       <ul>
-        <li>10+ pages</li>
-        <li>admin panel</li>
-        <li>gallery upload / result system</li>
-        <li>payment integration</li>
-        <li>1 month support</li>
+        <li>Unlimited pages / dynamic CMS</li>
+        <li>Admin panel + result system</li>
+        <li>Payment gateway (Razorpay/Stripe)</li>
+        <li>Gallery + document manager</li>
+        <li>30 days priority support</li>
       </ul>
-      <button class="btn" onclick="scrollToSection('contact')">choose business</button>
+      <button class="btn" onclick="scrollToSection('contact')">Claim deal →</button>
     </div>
     <div class="card plan">
-      <h3>enterprise</h3>
-      <h2>₹19,999</h2>
+      <div class="price-badge">Enterprise</div>
+      <h3 style="font-size:2rem;">₹19,999</h3>
       <ul>
-        <li>e‑commerce store</li>
-        <li>product & order mgmt</li>
-        <li>SEO optimized</li>
-        <li>priority support</li>
-        <li>custom features</li>
+        <li>Full e‑commerce solution</li>
+        <li>Product variants & inventory</li>
+        <li>Advanced SEO & schema</li>
+        <li>Dedicated support & SLA</li>
+        <li>Custom API integrations</li>
       </ul>
-      <button class="btn" onclick="scrollToSection('contact')">choose enterprise</button>
+      <button class="btn" onclick="scrollToSection('contact')">Contact sales →</button>
     </div>
   </div>
 </section>
 
 <section id="projects">
-  <h2>live projects</h2>
-  <div class="gallery">
-    <img src="https://picsum.photos/600/400?1" alt="preview" onclick="openImg(this.src)">
-    <img src="https://picsum.photos/600/400?2" alt="preview" onclick="openImg(this.src)">
-    <img src="https://picsum.photos/600/400?3" alt="preview" onclick="openImg(this.src)">
-    <img src="https://picsum.photos/600/400?4" alt="preview" onclick="openImg(this.src)">
+  <h2 class="section-title"><span>creative</span> showcases</h2>
+  <div class="gallery-modern" id="galleryGrid">
+    <div class="gallery-item"><img src="https://picsum.photos/id/20/600/450" alt="project mockup" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://picsum.photos/id/26/600/450" alt="ecommerce preview" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://picsum.photos/id/42/600/450" alt="school portal" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://picsum.photos/id/104/600/450" alt="business dashboard" loading="lazy"></div>
+  </div>
+  <div style="text-align:center; margin-top: 2rem;">
+    <button class="btn btn-outline" id="loadMoreBtn">📸 Load more projects +</button>
   </div>
 </section>
 
 <section id="contact">
-  <h2>let's talk</h2>
-  <form id="contactForm">
-    <input type="text" placeholder="your name" required>
-    <input type="tel" placeholder="mobile number" required>
-    <textarea placeholder="tell us about your website idea..." rows="3"></textarea>
-    <button class="btn" type="submit">send request</button>
-    <p id="msg"></p>
-  </form>
+  <h2 class="section-title"><span>start a</span> conversation</h2>
+  <div class="contact-wrapper">
+    <div class="glass-form">
+      <form id="advancedContactForm">
+        <input type="text" id="fullname" placeholder="Full name *" required>
+        <input type="tel" id="phone" placeholder="Mobile / WhatsApp number *" required>
+        <input type="email" id="email" placeholder="Email (optional)">
+        <textarea id="message" rows="3" placeholder="Tell us about your website vision..."></textarea>
+        <button class="btn" type="submit" id="submitBtn">✧ Send inquiry ✧</button>
+        <div id="msgFeedback"></div>
+      </form>
+      <p style="font-size:0.85rem; text-align:center; margin-top: 1rem;">📞 Quick response within 2 hours | 100% confidentiality</p>
+    </div>
+  </div>
 </section>
 
-<footer>© 2026 RKWebs — websites that work</footer>
+<footer>
+  © 2026 RKWebs — future-ready web ecosystems. Crafted with ⚡ in India.
+</footer>
 
-<!-- floating whatsapp -->
-<a class="whatsapp" href="https://wa.me/909035454361" target="_blank" title="chat on whatsapp">💬</a>
+<a class="whatsapp-float" href="https://wa.me/91909035454361" target="_blank" rel="noopener noreferrer">💬</a>
 
-<!-- lightbox -->
-<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
-  <img id="lightimg" alt="enlarged preview">
+<div class="lightbox" id="lightboxModal">
+  <img id="lightboxImg" alt="Enlarged view">
 </div>
 
 <script>
-  // smooth scroll
+  // ADVANCED FEATURES: smooth scroll, dynamic nav highlight, infinite gallery & more
   function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      updateActiveNav(id);
+    }
   }
 
-  // mobile menu toggle
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
+  // update active nav link
+  function updateActiveNav(sectionId) {
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href')?.substring(1);
+      if (href === sectionId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
-  // close mobile menu if click outside (optional, but fine)
-  document.addEventListener('click', function(event) {
-    const menu = document.getElementById('menu');
-    const btn = document.querySelector('.menu-btn');
-    if (!menu.contains(event.target) && !btn.contains(event.target) && menu.classList.contains('show')) {
-      menu.classList.remove('show');
+  // intersection observer for navbar highlight & reveal
+  const sections = document.querySelectorAll('section, .hero');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observerOptions = { threshold: 0.35 };
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        if (id) {
+          updateActiveNav(id);
+        } else if (entry.target.classList.contains('hero')) {
+          updateActiveNav('');
+        }
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => { if(section.id) sectionObserver.observe(section); });
+  document.querySelector('.hero') && sectionObserver.observe(document.querySelector('.hero'));
+
+  // mobile menu toggling
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle('show');
+  });
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('show')) {
+      navMenu.classList.remove('show');
     }
   });
-
-  // form handler
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('msg').innerText = '✅ thanks! we’ll reply within hours.';
-    this.reset();
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navMenu.classList.remove('show'));
   });
 
-  // lightbox
-  function openImg(src) {
-    document.getElementById('lightbox').style.display = 'flex';
-    document.getElementById('lightimg').src = src;
-  }
+  // sticky navbar shadow
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
 
-  // Intersection observer (reveal)
-  const observer = new IntersectionObserver((entries) => {
+  // ADVANCED GALLERY: dynamic load more (fast & non-blocking)
+  const extraImages = [
+    "https://picsum.photos/id/100/600/450", "https://picsum.photos/id/155/600/450", "https://picsum.photos/id/169/600/450", "https://picsum.photos/id/29/600/450"
+  ];
+  let galleryLoadedCount = 4;
+  const galleryContainer = document.getElementById('galleryGrid');
+  const loadBtn = document.getElementById('loadMoreBtn');
+  function addMoreImages() {
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < extraImages.length; i++) {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = extraImages[i];
+      img.alt = "dynamic project";
+      img.loading = "lazy";
+      div.appendChild(img);
+      div.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(img.src);
+      });
+      fragment.appendChild(div);
+    }
+    galleryContainer.appendChild(fragment);
+    // after adding, rebind lightbox events for new images
+    attachGalleryEvents();
+    if(loadBtn) loadBtn.style.display = 'none';
+  }
+  function attachGalleryEvents() {
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.parentElement.removeEventListener('click', img.parentElement.handler);
+      const handler = () => openLightbox(img.src);
+      img.parentElement.addEventListener('click', handler);
+      img.parentElement.handler = handler;
+    });
+  }
+  if(loadBtn) loadBtn.addEventListener('click', addMoreImages);
+  
+  // Lightbox system
+  function openLightbox(src) {
+    const lb = document.getElementById('lightboxModal');
+    const lbImg = document.getElementById('lightboxImg');
+    lbImg.src = src;
+    lb.style.display = 'flex';
+  }
+  document.getElementById('lightboxModal').addEventListener('click', function() {
+    this.style.display = 'none';
+  });
+  // initial gallery binding
+  attachGalleryEvents();
+
+  // FORM ADVANCEMENT: smart validation, localstorage mock, async simulation with animation
+  const contactForm = document.getElementById('advancedContactForm');
+  const msgDiv = document.getElementById('msgFeedback');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('fullname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!name || !phone) {
+      msgDiv.innerHTML = '⚠️ Please enter name and mobile number.';
+      msgDiv.style.color = '#cd3c3c';
+      return;
+    }
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '⏳ Sending...';
+    submitBtn.disabled = true;
+    // simulate async API call (performance optimization)
+    await new Promise(resolve => setTimeout(resolve, 650));
+    msgDiv.innerHTML = '✅ Thank you! Our team will contact you on WhatsApp within 2 hours.';
+    msgDiv.style.color = '#146ef5';
+    contactForm.reset();
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+    setTimeout(() => {
+      msgDiv.innerHTML = '';
+    }, 6000);
+  });
+
+  // REVEAL ANIMATION WITH INTERSECTION OBSERVER (performance)
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
+        revealObserver.unobserve(entry.target); // improves performance after reveal
       }
     });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('header, section, .card, .gallery img, .price, form').forEach(el => {
+  }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.card, .gallery-item, .hero, .section-title, .contact-wrapper, .plan, .counter-stat').forEach(el => {
     el.classList.add('reveal');
-    observer.observe(el);
+    revealObserver.observe(el);
   });
+  // pre-reveal for hero texts
+  document.querySelector('.hero h1')?.classList.add('active');
+  document.querySelector('.hero p')?.classList.add('active');
+  document.querySelector('.btn-group')?.classList.add('active');
 
-  // ensure any manually added class remains
+  // extra advanced: lazy load background images & fix for navbar active on load
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 </script>
-
 </body>
 </html>
